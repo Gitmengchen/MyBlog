@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"F:\phpstudy\WWW\MyBlog\public/../application/admin\view\entry\index.html";i:1502844632;s:65:"F:\phpstudy\WWW\MyBlog\public/../application/admin\view\base.html";i:1502872942;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"F:\phpstudy\WWW\MyBlog\public/../application/admin\view\entry\index.html";i:1502844632;s:65:"F:\phpstudy\WWW\MyBlog\public/../application/admin\view\base.html";i:1502972358;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +10,7 @@
     <link href="__STATIC__/admin/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="__STATIC__/admin/js/jquery.min.js"></script>
     <script src="__STATIC__/admin/bootstrap-3.3.0-dist/dist/js/bootstrap.min.js"></script>
-        <script src="resource/hdjs/app/util.js"></script>
-    <script src="resource/hdjs/require.js"></script>
-    <script src="resource/hdjs/app/config.js"></script>
+
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -36,7 +34,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <h4 style="display: inline;line-height: 50px;float: left;margin: 0px"><a href="index.html" style="color: white;margin-left: -14px">MengChen's Blog </a>
+                <h4 style="display: inline;line-height: 50px;float: left;margin: 0px"><a href=<?php echo url('index/index/index'); ?> style="color: white;margin-left: -14px">MengChen's Blog </a>
                 </h4>
                 <div class="navbar-header">
                     <ul class="nav navbar-nav">

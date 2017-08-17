@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"F:\phpstudy\WWW\MyBlog\public/../application/index\view\index\index.html";i:1502972103;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 	<head>
@@ -45,7 +46,7 @@
 						<div class="collapse navbar-collapse" id="example-navbar-collapse">
 							<ul class="_menu" >
 								<li class="_active"><a href="index.html">首页</a></li>
-								<li><a href={:url('admin/Entry/index')}>后台</a></li>
+								<li><a href=<?php echo url('admin/Entry/index'); ?>>后台</a></li>
 								<li><a href=""></a></li>
 								<li><a href=""></a></li>
 							</ul>
