@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"F:\phpstudy\WWW\MyBlog\public/../application/index\view\index\index.html";i:1503044662;s:65:"F:\phpstudy\WWW\MyBlog\public/../application/index\view\base.html";i:1503017479;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:74:"F:\phpstudy\WWW\MyBlog\public/../application/index\view\index\arclist.html";i:1503045245;s:65:"F:\phpstudy\WWW\MyBlog\public/../application/index\view\base.html";i:1503017479;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 	<head>
@@ -60,67 +60,50 @@
 				<div class="row">
 					<!--标签规定文档的主要内容main-->
 					<!--模板继承-->
-{foreach name='article' key='key' item='vo'}
+<!--标签规定文档的主要内容main-->
 <main class="col-md-8">
-<article class="_carousel">
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-	<!-- Indicators -->
-	<ol class="carousel-indicators">
-		<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-		<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-	</ol>
-	<!-- Wrapper for slides -->
-	<div class="carousel-inner" role="listbox">
-		<div class="item active">
-			<img src="__STATIC__/index/images/1.png">
+	<article>
+		<div class="_head category_title">
+			<h2>
+					标签：
+					<!--分类：-->
+				分类或者标签名称
+			</h2>
+			<span>
+				共 22 篇文章 
+			</span>
 		</div>
-		<div class="item">
-			<img src="__STATIC__/index/images/2.png">
+	</article>
+	<article>
+		<div class="_head">
+			<h1>标题</h1>
+			<span>
+			作者：
+			admin
+			</span>
+			•
+			<!--pubdate表⽰示发布⽇日期-->
+			<time pubdate="pubdate" datetime="">2015年11月06日11:34:39</time>
+			•
+			分类：
+			<a href="">新闻</a>
 		</div>
-	</div>
-
-	<!-- Controls -->
-	<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-	</a>
-	<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-	</a>
-</div>
-
-</article>
-<?php if(is_array($article) || $article instanceof \think\Collection || $article instanceof \think\Paginator): if( count($article)==0 ) : echo "" ;else: foreach($article as $key=>$vo): ?>
-
-<article>
-<div class="_head">
-	<h1><?php echo $vo['arc_title']; ?></h1>
-	<span>
-								作者：
-								<?php echo $vo['arc_author']; ?>
-	</span>
-								•
-	<!--pubdate表⽰示发布⽇日期-->
-	<time pubdate="pubdate" datetime=<?php echo $vo['sendtime']; ?>><?php echo $vo['sendtime']; ?></time>
-								•
-								分类：
-	<a href="list.html">新闻</a>
-</div>
-<div class="_digest">
-	<p>
-									摘要:<?php echo $vo['arc_digest']; ?>
-	</p>
-</div>
-<div class="_more">
-	<a href="" class="btn btn-default">阅读全文</a>
-</div>
-<div class="_footer">
-	<i class="glyphicon glyphicon-tags"></i>
-	<a href="">PHP</a>
-	<a href="">PHP</a>
-</div>
-</article>
-<?php endforeach; endif; else: echo "" ;endif; ?>
-
+		<div class="_digest">
+		<img src="./images/1.jpg"  class="img-responsive"/>
+			<p>
+				摘要
+			</p>
+		</div>
+		<div class="_more">
+			<a href="" class="btn btn-default">阅读全文</a>
+		</div>
+		<div class="_footer">
+			<i class="glyphicon glyphicon-tags"></i>
+			<a href="">php</a>、
+			<a href="">php</a>、
+			<a href="">php</a>、
+		</div>
+	</article>
 </main>
 
 						<aside class="col-md-4 hidden-sm hidden-xs">

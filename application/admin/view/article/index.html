@@ -23,32 +23,33 @@
                             <tr>
                                 <th width="5%">编号</th>
                                 <th>文章名称</th>
-                                <th width="5%">排序</th>
+                                <th width="5%"></th>
                                 <th>所属分类</th>
                                 <th>添加时间</th>
                                 <th width="200">操作</th>
                             </tr>
                             </thead>
                             <tbody>
+                            {foreach name='article' key='key' item='vo'}
                                 <tr>
-                                    <td>编号</td>
-                                    <td>标题</td>
+                                    <td>{$vo['arc_id']}</td>
+                                    <td>{$vo['arc_title']}</td>
                                     <td>
-                                        <input type="text" class="form-control">
                                     </td>
                                     <td>所属分类</td>
-                                    <td>1990-10-1</td>
+                                    <td>{$vo['sendtime']}</td>
                                     <td>
                                         <div class="btn-group">
                                             <button data-toggle="dropdown" class="btn btn-primary btn-xs dropdown-toggle">操作 <span class="caret"></span></button>
                                             <ul class="dropdown-menu dropdown-menu-right">
                                                 <li><a href="">编辑</a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="">删除到回收站</a></li>
+                                                <li><a href="javascript:;" onclick="del({$vo['arc_id']})">删除</a></li>
                                             </ul>
                                         </div>
                                     </td>
                                 </tr>
+                                {/foreach}
                             </tbody>
                         </table>
                     </div>
@@ -59,4 +60,11 @@
             </div>
         </div>
         <!--右侧主题部分 end-->
+<script type="text/javascript">
+    function del(arc_id)
+    {
+        alert("已删除");
+        location.href = "{:url('del')}"+'?arc_id='+arc_id;
+    }
+</script>
 {/block}

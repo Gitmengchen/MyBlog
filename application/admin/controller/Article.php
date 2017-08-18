@@ -14,6 +14,8 @@ class Article extends Controller
 	}
 	public function index()
 	{
+		$field = db('article')->select();
+		$this->assign('article',$field);
 		return $this->fetch();
 	}
 	//添加文章
@@ -32,5 +34,15 @@ class Article extends Controller
 			}
 		}
 		return $this->fetch();
+	}
+	public function del()
+	{
+		$res = $this->db->del(input('get.arc_id'));
+		if($res['valid'])
+		{
+			$this->success($res['msg'],'index');exit;
+		}else{
+			$this->error($res['msg']);exit;
+		}
 	}
 }

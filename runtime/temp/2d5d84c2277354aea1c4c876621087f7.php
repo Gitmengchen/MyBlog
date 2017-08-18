@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"F:\phpstudy\WWW\MyBlog\public/../application/admin\view\entry\index.html";i:1502844632;s:65:"F:\phpstudy\WWW\MyBlog\public/../application/admin\view\base.html";i:1503017463;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"F:\phpstudy\WWW\MyBlog\public/../application/admin\view\tag\index.html";i:1502872221;s:65:"F:\phpstudy\WWW\MyBlog\public/../application/admin\view\base.html";i:1503017463;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,29 +164,66 @@
         </div>
         <!--右侧主体区域部分 start-->
         <div class="col-xs-12 col-sm-9 col-lg-10">
-            
-<table class="table table-hover">
-                <tbody>
-                <tr>
-                    <th class="active" colspan="10">温馨提示</th>
-                </tr>
-                <tr>
-                    <th class="active" colspan="10">系统信息</th>
-                </tr>
-                <tr>
-                    <td>核心框架</td>
-                    <td colspan="5">Thinkphp</td>
-                </tr>
-                <tr>
-                    <td>版本号</td>
-                    <td colspan="5">5.0</td>
-                </tr>
-                <tr>
-                    <td>开发者</td>
-                    <td colspan="5">MengChen</td>
-                </tr>
-                </tbody>
-            </table>
+            <!--模板继承-->
+<!--右侧主题部分 start-->
+        <div class="col-xs-12 col-sm-9 col-lg-10">
+            <ol class="breadcrumb" style="background-color: #f9f9f9;padding:8px 0;margin-bottom:10px;">
+                <li>
+                    <a href=""><i class="fa fa-cogs"></i>
+                        标签管理</a>
+                </li>
+                <li class="active">
+                    <a href="">标签展示</a>
+                </li>
+            </ol>
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="">标签管理</a></li>
+                <li><a href="<?php echo url('store'); ?>">添加标签</a></li>
+            </ul>
+            <form action="" method="post">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th width="80">编号</th>
+                                <th>标签名</th>
+                                <th width="200">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php if(is_array($field) || $field instanceof \think\Collection || $field instanceof \think\Paginator): if( count($field)==0 ) : echo "" ;else: foreach($field as $key=>$vo): ?>
+                            <tr>
+                                <td><?php echo $vo['tag_id']; ?></td>
+                                <td><?php echo $vo['tag_name']; ?></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button data-toggle="dropdown" class="btn btn-primary btn-xs dropdown-toggle">操作 <span class="caret"></span></button>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="<?php echo url('admin/tag/store',['tag_id'=>$vo['tag_id']]); ?>">编辑</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="javascript:;"onclick="del(<?php echo $vo['tag_id']; ?>)">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php endforeach; endif; else: echo "" ;endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+            <div class="pagination pagination-sm pull-right">
+            <?php echo $field->render(); ?>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function del(tag_id)
+            {
+                location.href = "<?php echo url('del'); ?>"+'?tag_id='+tag_id;
+            }
+        </script>
+<!--右侧主题部分 end-->
 
         </div>
     </div>

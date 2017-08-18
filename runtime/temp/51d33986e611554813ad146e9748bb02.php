@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"F:\phpstudy\WWW\MyBlog\public/../application/admin\view\entry\index.html";i:1502844632;s:65:"F:\phpstudy\WWW\MyBlog\public/../application/admin\view\base.html";i:1503017463;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:74:"F:\phpstudy\WWW\MyBlog\public/../application/admin\view\article\store.html";i:1503044364;s:65:"F:\phpstudy\WWW\MyBlog\public/../application/admin\view\base.html";i:1503017463;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,29 +164,109 @@
         </div>
         <!--右侧主体区域部分 start-->
         <div class="col-xs-12 col-sm-9 col-lg-10">
-            
-<table class="table table-hover">
-                <tbody>
-                <tr>
-                    <th class="active" colspan="10">温馨提示</th>
-                </tr>
-                <tr>
-                    <th class="active" colspan="10">系统信息</th>
-                </tr>
-                <tr>
-                    <td>核心框架</td>
-                    <td colspan="5">Thinkphp</td>
-                </tr>
-                <tr>
-                    <td>版本号</td>
-                    <td colspan="5">5.0</td>
-                </tr>
-                <tr>
-                    <td>开发者</td>
-                    <td colspan="5">MengChen</td>
-                </tr>
-                </tbody>
-            </table>
+            <!--模板继承-->
+       <!--右侧主题部分 start-->
+        <div class="col-xs-12 col-sm-9 col-lg-10">
+            <ol class="breadcrumb" style="background-color: #f9f9f9;padding:8px 0;margin-bottom:10px;">
+                <li>
+                    <a href=""><i class="fa fa-cogs"></i>
+                        文章管理</a>
+                </li>
+                <li class="active">
+                    <a href="">文章添加</a>
+                </li>
+            </ol>
+            <ul class="nav nav-tabs" role="tablist">
+                <li><a href="<?php echo url('index'); ?>">文章管理</a></li>
+                <li class="active"><a href="">文章添加</a></li>
+            </ul>
+            <form class="form-horizontal" id="form"  action="" method="post">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">文章管理</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">文章标题</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="arc_title"  class="form-control" placeholder="文章标题">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">文章作者</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="arc_author"  class="form-control" placeholder="文章作者">
+                            </div>
+                        </div>
+                        <!--
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">所属分类</label>
+                            <div class="col-sm-9">
+                                <select class="js-example-basic-single form-control" name="category_cid">
+                                    <option value="0">请选择分类</option>
+                                        <option value="">分类1</option>
+                                        <option value="">分类2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">标签</label>
+                            <div class="col-sm-9">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="" value=""> 标签1
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="" value=""> 标签2
+                                    </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">缩略图</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <input type="file" class="btn btn-default" name="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">文章摘要</label>
+                            <div class="col-sm-9">
+                                <textarea type="text" name="arc_digest"  class="form-control" placeholder="文章摘要"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for=""  class="col-sm-2 control-label">文章内容</label>
+                            <div class="col-sm-9">
+                                <textarea id="text-input" type="text" oninput="this.editor.update()" name="arc_content"  class="form-control" placeholder="文章内容"></textarea>
+                            </div>
+                            <label for=""  class="col-sm-2 control-label">实时预览</label>
+                            <div class="col-sm-9" id="preview">
+                                
+                            </div>
+                        </div>
+                        <!--markdown start-->
+    <script src="__STATIC__/markdown/markdown.js"></script>
+    <script>
+      function Editor(input, preview) {
+        this.update = function () {
+          preview.innerHTML = markdown.toHTML(input.value);
+        };
+        input.editor = this;
+        this.update();
+      }
+      var $ = function (id) { return document.getElementById(id); };
+      new Editor($("text-input"), $("preview"));
+    </script>
+                        <!--markdown end-->
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">确定</button>
+            </form>
+
+        </div>
+        <!--右侧主题部分 end-->
 
         </div>
     </div>
